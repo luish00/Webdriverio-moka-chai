@@ -220,9 +220,9 @@ const myFunction = function() { ... };
 const myFunction = () => { ... }; // Más elegancía ES6
 ```
 
-> \* Link's para más información de métodos del objeto [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array) y el objeto [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String). 
+ \* Link's para más información de métodos del objeto [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array) y el objeto [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String). 
 <br />
-> \* Del objero String les recomiendo ver los métodos [.charAt](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt), [.conca](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/concat), [.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes), [.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf), [.replace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace), [.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/slice), [.split](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/split), [.substr ](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/substr), [.toLowerCase](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase)
+ \* Del objero String les recomiendo ver los métodos [.charAt](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt), [.conca](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/concat), [.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes), [.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf), [.replace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace), [.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/slice), [.split](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/split), [.substr ](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/substr), [.toLowerCase](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase)
 
 ### Sentencias de control de flujo
 #### Condicíon `if`
@@ -260,17 +260,17 @@ Estructura:
 ```js
 switch (condición) {
   case caso1: {
-       // código
-       breack;
+    // código
+     break;
    } 
 
   case caso2: {
-       // código
-       breack;
+     // código
+     break;
    }
 
   default: {
-       // código
+     // código
    }
 }
 ```
@@ -386,23 +386,23 @@ const LoginPage require('../../pages/myPageLogin.page.js'); // <-- Inport page's
 const loginPage = new LoginPage(); // <-- Crear variable
 
 describe('login form', () => {
-   // Caso de prueba 1 (usando los compentes directamente) good
-    it('should deny access with wrong creds', () => {
-        loginPage.open()
-        loginPage.username.setValue('foo')
-        loginPage.password.setValue('bar')
-        loginPage.submit()
+  // Caso de prueba 1 (usando los compentes directamente) good
+  it('should deny access with wrong creds', () => {
+    loginPage.open()
+    loginPage.username.setValue('foo')
+    loginPage.password.setValue('bar')
+    loginPage.submit()
 
-        expect(loginPage.flash.getText()).to.contain('Your username is invalid!')
-    })
+     expect(loginPage.flash.getText()).to.contain('Your username is invalid!')
+  })
 
-    // Caso de prueba 2 (usando metodo login) good
-    it('should allow access with correct creds', () => {
-        loginPage.open()
-        loginPage.login('tomsmith', 'SuperSecretPassword!')
+  // Caso de prueba 2 (usando metodo login) good
+  it('should allow access with correct creds', () => {
+    loginPage.open()
+    loginPage.login('tomsmith', 'SuperSecretPassword!')
 
-        expect(LoginPage.flash.getText()).to.contain('You logged into a secure area!')
-    })
+  expect(LoginPage.flash.getText()).to.contain('You logged into a secure area!')
+  })
 })
 ```
 
@@ -413,4 +413,196 @@ Archivo de liberías utilizado por `npm` o `yarn` para instalar las dependencias
 
 Entre las cosas ha destacar serían dos, la parte de `dependencies` que es donde estan las librerías/sdk's usados por el proyectos y `scripts` que son, literalmente su nombre, scripts custom creados para fácilitar algunos comandos entre ellos el de correr el proyecto. Para utilizar un sprint se us `npm run mi-script`.
 ### wdio.conf.js
-Archivo de configuración del proyecto de Webdriver i/o. (para más detalles ir a [este link](https://webdriver.io/docs/options.html)).
+Archivo de configuración del proyecto de Webdriver i/o. 
+
+Si quiren configurar un nuevo archivo de configuración pueden correr el script  
+```
+npm run wdio-config
+```
+o sí es un proyecto nuevo 
+
+```
+> cd ./node_modules/.bin/
+> wdio config -y
+```
+
+(para más detalles ir a [este link](https://webdriver.io/docs/options.html)).
+
+# Webdriver i/o (con Mocha Framework)
+Next-gen WebDriver test framework for Node.js.
+
+## Selectores 
+Para encontrar elementos enel [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) (dentro de una pagina web) usaremos el acceso directo `$` o `$$`, la diferencía varía entre el scppe de elementos, y usaremos selectores para ellos.
+
+Los selectores puedes, o no, asignarse a variables 
+
+#### Comando $
+El comando corto de `findElement` para buscar un elemento visible en la pagina.
+```js
+$(selector)
+ 
+ or
+
+const myElement = $(selector);
+```
+
+#### Comando $$
+Comand corto de `findElements` para buscar multiples elementos en una pagina.
+```js
+$$(selector)
+ 
+ or
+
+const myElements = $$(selector)
+```
+
+Ejemplo practio:
+```html
+<html>
+  <h1>My page<h1>
+  <ul id="menu" class="drop-down-menu">
+    <li><a href="../login">Login</a></li>
+    <li><a href="/user">Usuarios</a></li>
+    <li><a href="/user/profile">Profile</a></li>
+  </ul>
+  <body id="body">
+    <from class="login-from">
+      <spam class="label bold">Login</spam>
+      <spam class="label italic">Wellcome</spam>
+
+      <div class="row col3">
+        <spam class="label">Nombre</spam>
+        <input class="input-from" id="name" />
+      <div>
+      <div class="row col3">
+        <spam class="label password">Constraseña</spam>
+        <input class="input-from" id="password" type="password" />
+      <div>
+
+      <button class="btn-submint-blue" type="submit" value="Login"/> 
+    </from>
+  <body>
+<html>
+```
+### Selector por etiqueta/s (tag name)
+Busca elementos por tipo de etiquita
+```js
+// usage $('tag-name')
+$('body') // elemento <body />
+```
+
+### Selector por id 
+Busca elementos por el atributo `id`
+```js
+// usage $(#id) 
+const inpName = $('#name')  // elemento input#name
+
+console.log(inpName.getValue()) // outputs: "Luis"
+```
+
+## Selector por clase CSS
+Busca elementos por css query (puede ser mediante 1 o varias clases)
+```js
+// usage $(.class) or $(.class1.class2)
+$('.btn-submint-blue')  // elemento button.btn-submint-blue
+$('.label.password')    // elemento spam.label.password
+
+$('.btn-submint-blue').click(); // output: da click en el botón
+```
+
+## Selector por texto de enlace 
+Busca elementos por el texto que contengan entre su etiquita (no funciona con input)
+```js
+$('=Constraseña')   // elemento spam
+
+const pass = $('=Constraseña').getText(); // guardamos el valor deltexto en una variable
+console.log(pass);  // ouputs: "SuperPassMamalon123$"
+```
+
+### Selector por texto centrado (similar al anterior pero más espesifico)
+
+```js
+// usage $('tag=certrain text')
+$('spam=Constraseña')   // elemento spam
+```
+
+### Selctores convinados
+Se pueden hacer convinaciones entre los selectores para hacer busquedas mas complejas en caso de ser necesario o no tener un `id` en el elemento deseado.
+
+Siempre se empieza desde padre a hijo en orden de izquierda derecha respectivamente.
+
+Elemento \<a\> dentro del elemento de un \<li\> con texto "profile" dentro del elemento \<ul\> con clase drop-down-menu
+
+```html
+ <ul id="menu" class="drop-down-menu">
+    ...
+    <li>
+      	<a href="/user/profile">Profile</a> <<< this is it
+    </li>
+  </ul>
+``` 
+```js
+const liLogin = $('ul.drop-down-menu li a=Profile');  
+
+console.log(liLogin.getAttribute('href')) // outputs: "/user/profile"
+
+// other examples
+const inpPass = $('input#password')         // elemento input#password
+const spamName = $('from spam.label.bold'); // elemento spam.label.bold
+const btn = $('from.login-form button');    // elemento button
+```
+
+### Selectores con $$
+```js
+const menus = $$('#menu li');   // elementos li
+ 
+console.log(menus.length);  	  // outputs: 3
+console.log(menu[1].getText())  // outputs: "Usuarios"
+```
+
+Se pueden combinar los comandos de selección
+```js
+$$('#menu li').$('a=profile')   // element a 
+$$('#menu li')[2].$('a')        // element a 
+$('from').$$('div')[1].$('input.password')  // element input.password
+```
+
+Para mas detalle del uso de selector ir a [este link](https://webdriver.io/docs/selectors.html).
+
+## Chai Assertion Library
+API reference
+
+Write your own test expressions.
+
+
+`assert(expression, message)`
+* @param { Mixed } expression to test for truthiness
+* @param { String } message to display on error
+
+```js
+assert('foo' !== 'bar', 'foo is not bar');
+assert(Array.isArray([]), 'empty arrays are arrays');
+```
+
+`.isOk(object, [message])`
+* @param { Mixed } object to test
+* @param { String } message
+
+Asserts that `object` is truthy.
+```js
+assert.isOk('everything', 'everything is ok');
+assert.isOk(false, 'this will fail');
+```
+
+`.strictEqual(actual, expected, [message])`
+* @param { Mixed } actual
+* @param { Mixed } expected
+* @param { String } message
+
+Asserts strict equality (`===`) of actual and expected.
+
+```js
+assert.strictEqual(true, true, 'these booleans are strictly equal');
+```
+
+Para mas información ir a [este link](https://www.chaijs.com/api/assert/#method_assert)
