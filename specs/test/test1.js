@@ -40,7 +40,7 @@ describe('Get-quote page', () => {
   const getQuote = new GetQuote(quoteTest);
 
   it('Add a Pet', () => {
-    browser.url(app.env + '/get-quote')
+    getQuote.open();
     const title = browser.getTitle()
     assert.strictEqual(title, 'Figo Quoting')
 
