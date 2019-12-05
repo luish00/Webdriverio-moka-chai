@@ -1,5 +1,21 @@
 # Test case with Webdriverio - Mocha - Chai
-Proyecto base para pruebas unitarias mamalon
+Proyecto base para pruebas unitarias con Webdriver i/o, Mocha y Chai en JavaScript hecho para tester/QA que e llevará de **No tengo idea que hago aquí** a nivel **Soy Batman** (o **Gatúbela** por lo menos).
+
+> Referencias
+ * [Webdriver I/O](https://webdriver.io/)
+ * [Chai](https://www.chaijs.com/)
+ * [Framework Mocha](https://webdriver.io/docs/frameworks.html#using-mocha)
+ * [Reportes Spec](https://webdriver.io/docs/spec-reporter.html)
+ * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+
+## Index
+* [Requisitos base](https://github.com/luish00/Webdriverio-moka-chai#requisitos-base)
+* [Instalación del proyeco](https://github.com/luish00/Webdriverio-moka-chai#instalaci%C3%B3n-del-proyeco)
+* [Estructura del proyecto](https://github.com/luish00/Webdriverio-moka-chai#estructura-del-proyecto)
+* [Webdriverio](https://github.com/luish00/Webdriverio-moka-chai#webdriver-io)
+* [Chai](https://github.com/luish00/Webdriverio-moka-chai#chai-assertion-library)
+* [Conceptos básicos Git](https://github.com/luish00/Webdriverio-moka-chai#conceptos-b%C3%A1sicos-de-git)
+* [Conceptos básicos de Vanilla JavaScript](https://github.com/luish00/Webdriverio-moka-chai#conceptos-b%C3%A1sicos-de-vanilla-javascript)
 
 ## Requisitos base 
 * [Node.js (npm)](https://nodejs.org/es/) >= v10.14.1
@@ -12,16 +28,6 @@ Proyecto base para pruebas unitarias mamalon
   * [WebStorm](https://www.jetbrains.com/webstorm/) >= v193 (Editor fifi neo liberal de pago)
 * [Google Chrome](https://www.google.com.mx/intl/es-419/chrome/?brand=CHBD&gclid=Cj0KCQiAz53vBRCpARIsAPPsz8Xp6MDX4vxBariQIk1hq-PR2VkMrhG6l-6pWyan2S8pRubLvJHcOsEaAr56EALw_wcB&gclsrc=aw.ds) >= v78
 * **Un chingo de ganas porque es un montón**
-
-## Index
-* Instalación del proyeco
-* Conceptos básicos Git
-* Conceptos básicos de Vanilla JavaScript
-* Estructura del proyecto
-* Webdriverio 
-  * Selectores
-  * Funciones básicas
-* Chai (assert)
 
 ## Instalación del proyeco
 1. Clonar repositorio
@@ -54,260 +60,6 @@ _Nota:_ comandos para comprobar si tienen todo instado, despues de instalar podr
 > git --version
 ```
 
-## Conceptos básicos de git
-Git es un sistema de control de versiones open source diseñado para controlar proyectos desde pequeños a grandes.
-
-### Herramientas para usar git 
-* [Gitkraken](https://www.gitkraken.com/)
-* [Sourcetree](https://www.sourcetreeapp.com/)
-* **Command Prompt  (cmd)** como los hombres (aquí no seremos muchos pero si machos)
-
-### Comandos básicos de git en consola
-```
-> git clone         // Clona un proyecto
-> git status        // Muestra los cambios actuales del directorio
-> git add .         // Agrega todos los cambios al stage local
-> git commit -m     // Agrega un comentario a tu archivos agregados 
-> git branch        // Muestra todas las ramas actuales
-> git push          // Pusha los cambios locales al servidor.
-> git pull          // Trae los cambios del servidor a tu rama local
-> git checkout      // Cambia de rama con -b cambia y crea una rama nueva
-> git reset --hard  // Elimina TODOS tus cambios actuales no comiteados
-```
-
-En git existen dos ramas base, `master` que es la rama donde esta el código funcional y `develop` que es la rama de de sarrollo. Ademas a eso existen otras ramas `feature` donde se estará trabajando individualmente cada desarrollador en su tarea actual 
-
-*Git flow flujo*
-![Git flow](https://marcgg.com/assets/blog/git-flow-before.jpg "Git flow")
-
-Ejemplo de un flujo de trabajo:
-#### 1. Te asignan una tarea "Login test case"
-#### 2. Clonas el repositorio (De no tener lo)
-```
-> git clone url_repo
-> cd carpeta_repo
-```
-#### 2. Creas tu rama de desarrollo.
-> _Nota:_ debes de estar en la rama `develop` y no tener cambios.
-```
-> git branch 
-* develop
-master
-> git checkout -b feature/login-test-case
-Switched to a new branch 'feature/login-test-case'
-```
- #### 3. Hacer tus cambios, crear tus js, etc, etc.
- #### 4. Agregar tus archivos nuevos/modificados al stage local
- (Los pasos 3 y 4 pueden repetirse n veces si es necesario )
-```
-> git status 
-Untracked files:
-M app.js
-new file: specs/test/loginTest.js
-
-> git add .
-
-> git status
-(en letras verdes)
-M app.js
-new file: specs/test/loginTest.js
-
-> git commit -m "Login test case created"
-[feature/login-test-case 084f130] Login test case created
-
-> git push origin feature/login-test-case
-c7573c5..cf971cf  feature/login-test-case -> feature/login-test-case
-```
-
-#### 5. Hacer el Pull Request.
-Ir a su repositorio git (De donde lo clonaron) > Ir a la parte donde dice Pull request > dar click en el boton de **[New pull request]** y debería quedar configurado de la siguiente manera: 
-
-base: development ⬅ compare: feature/login-test-case
-
-> _Nota:_ en algunos casos como en GitLab o Bitbucket se les llama **Merge request** en vez de **Pull request** como en GitHub
-
-Para mas información sobre git pueden ir a este link [soy un link](https://git-scm.com/docs/git#_git_commands)
-
-Si lo prefieren pueden usarn un ide para manejar git, aquí hay un tutorial de como usar GitKraken [soy un link](https://support.gitkraken.com/)
-
-## Conceptos básicos de Vanilla JavaScript
-### Declarar variables
-Existen cuatro formas de declarar variables en js 
-```js
-// Variable global no recomendable usar
-var variableGlabal = 'holi';
-// Constante, si algo es declarado const su valor no puede cambiar
-const pi = 3.14159;
-// Variable mas fifi local, por "estandar" usar en vez de var
-let variableLocal = 'holi'; 
-// Este tipo de variable es similar a let pero dentro de una clase
-this.variableDeClase = 'holi';
-```
-
-### Operadoes 
-```js
-+       // suma
--       // resta
-*       // multiplicación
-=       // asignación
-==      // igualación simple (no compara tipo, no recomendable usar)
-===     // igualación de tipo 'identico a'
-!       // negación, !true === false
-!==    // negación 'diferente a'
-```
-
-### Tipo de datos
-Js es debilmete tipado, aun así existen tipos de variables
-```js
-// Datos primitivos
-
-// Incluye numeros negativos y positivos 
-let int = 42;
-// Números imprecisos con punto decimal, ambos dos son exactamente igual en js en otros lenguajes varía sólo la presición
-let float = 3.14159;
-let duobles = 3.14159;
-// Cadenas de texto, usar comillas simples de prefencía al declarar cadenas de texto (los string no son datos primitivos pero yolo)
-let string = 'Cadena simple'; //good
-let string = "Cacena"; 
-// Bool o boolean, son datos binarios con sólo dos posibles valores verdadero o falso
-let bool = true/false;
-
-// Datos complejos
-
-/*
-Un Objeto es conjunto de propiedades relacioneados agrupados con un estructura llave valor.
-
-La llave no debería ser un numero entero, si es posible pero intentar no hacer lo.
-El valor puede ser cualquier otro tipo de dato incluyento otro objecto.
-*/
-let object = { key: value }; // good
-let object = { 'key': value }; // bad, no genera error pero esta feo
-let user = { 
-  age: 27, 
-  firstName: 'Luis', 
-  isRegio: false,
-  lastName: 'Arredondo',
-}
-
-> console.log('name', user.firstName); // Output "Luis"
-
-// Colección de datos o lista, puede contener cualquier tipo de dato y n cantidad. Recordad, los arreglos empiezan en 0.
-let array = [];
-let primeNumbers = [2, 3, 5, 7, 9, 11];
-let days = ['Monday', 'Other monday', 'Other other monday']; 
-// (No genera error pero sí crees necesitar algo así será mejor que te tomes una cheve y re-organizes tus ideas)
-let capirotada = [ 1, 'two', 3, false, 5]; // bad
-
-// Agregar datos a un arreglo
-primeNumbers.push(13);
-
-// Sacar datos de un array
-primeNumbers[3] // Output 7
-
-
-// Remover el ultimo elemento
-days.pop(); // Output 'Other other monday' removed
-
-// Remover el primer elemento de un array
-days.shift(); // Output 'Monday' removed
-
-// Saber el tamaño de un array
-days.length; // Output 3
-
-
-// En js se pueden hacer variables de funciones 
-const myFunction = function() { ... };
-const myFunction = () => { ... }; // Más elegancía ES6
-```
-
- \* Link's para más información de métodos del objeto [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array) y el objeto [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String). 
-<br />
- \* Del objero String les recomiendo ver los métodos [.charAt](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt), [.conca](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/concat), [.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes), [.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf), [.replace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace), [.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/slice), [.split](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/split), [.substr ](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/substr), [.toLowerCase](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase)
-
-### Sentencias de control de flujo
-#### Condicíon `if`
-Evalua una condición de tipo `bool` de ser verdará ejecutará el código que este dentro o, en caso de estar presente, ejecutará el código que este en el `else`.
-
-Estructura: 
-```js
-if (condicion) {
-  // Si la condición es true 
-} else {
-  //Si la condición es false 
-}
-```
-Ejemplos de condiciones:
-```js
-let name = 'juan' 
-
-if (name === 'juan') {
-  // entra
-}
-
-if (name === 'Juan'){
-  // no entra
-}
-
-if (name.length > 3) {
-  // entra
-}
-```
-
-### Condición `swich`
-Evalua una condición de tipo `string` o `int` pero con multiple casos de uso (en vez de usar una cantidad `n` de `if`);
-
-Estructura:
-```js
-switch (condición) {
-  case caso1: {
-    // código
-     break;
-   } 
-
-  case caso2: {
-     // código
-     break;
-   }
-
-  default: {
-     // código
-   }
-}
-```
-
-### Functions
-Una función es un trozo de código que se encarga de realizar una tarea en especial.
-
-```js
-// bad, formato viejo
-mYfunction = function(args) {
-   return value; // no es requerido si la función no retorna nada
-}
-
-// good 
-myFunction(args) {
-  return vale; // no es requerido si la función no retorna nada
-}
-
-//ES6, formato más actual
-myFunction = () => {
-   return vale; // no es requerido si la función no retorna nada
-}
-```
-
-Ejemplos: 
-```js
-sumNumber(num1, num2) {
-   return num1 + num2;
-}
-
-log(key, foo) {
-   console.log(key, foo);
-}
-
-let sum = sumNumber(2, 4); // sum almacena 6
-log('La suma es: ', sum); // Output 'La suma es: 6'
-```
 
 ## Estructura del proyecto
 * models
@@ -428,8 +180,9 @@ o sí es un proyecto nuevo
 
 (para más detalles ir a [este link](https://webdriver.io/docs/options.html)).
 
-# Webdriver i/o (con Mocha Framework)
+# Webdriver i/o
 Next-gen WebDriver test framework for Node.js.
+> [Api reference](http://v4.webdriver.io/api/utility/$.html)
 
 ## Selectores 
 Para encontrar elementos enel [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) (dentro de una pagina web) usaremos el acceso directo `$` o `$$`, la diferencía varía entre el scppe de elementos, y usaremos selectores para ellos.
@@ -569,7 +322,7 @@ $('from').$$('div')[1].$('input.password')  // element input.password
 
 Para mas detalle del uso de selector ir a [este link](https://webdriver.io/docs/selectors.html).
 
-## Chai Assertion Library
+# Chai Assertion Library
 API reference
 
 Write your own test expressions.
@@ -605,4 +358,261 @@ Asserts strict equality (`===`) of actual and expected.
 assert.strictEqual(true, true, 'these booleans are strictly equal');
 ```
 
-Para mas información ir a [este link](https://www.chaijs.com/api/assert/#method_assert)
+Para mas información ir a [este link](https://www.chaijs.com/api/assert/#method_assert) 
+
+## Conceptos básicos de git
+Git es un sistema de control de versiones open source diseñado para controlar proyectos desde pequeños a grandes.
+
+### Herramientas para usar git 
+* [Gitkraken](https://www.gitkraken.com/)
+* [Sourcetree](https://www.sourcetreeapp.com/)
+* **Command Prompt  (cmd)** como los hombres (aquí no seremos muchos pero si machos)
+
+### Comandos básicos de git en consola
+```
+> git clone         // Clona un proyecto
+> git status        // Muestra los cambios actuales del directorio
+> git add .         // Agrega todos los cambios al stage local
+> git commit -m     // Agrega un comentario a tu archivos agregados 
+> git branch        // Muestra todas las ramas actuales
+> git push          // Pusha los cambios locales al servidor.
+> git pull          // Trae los cambios del servidor a tu rama local
+> git checkout      // Cambia de rama con -b cambia y crea una rama nueva
+> git reset --hard  // Elimina TODOS tus cambios actuales no comiteados
+```
+
+En git existen dos ramas base, `master` que es la rama donde esta el código funcional y `develop` que es la rama de de sarrollo. Ademas a eso existen otras ramas `feature` donde se estará trabajando individualmente cada desarrollador en su tarea actual 
+
+*Git flow flujo*
+![Git flow](https://marcgg.com/assets/blog/git-flow-before.jpg "Git flow")
+
+Ejemplo de un flujo de trabajo:
+#### 1. Te asignan una tarea "Login test case"
+#### 2. Clonas el repositorio (De no tener lo)
+```
+> git clone url_repo
+> cd carpeta_repo
+```
+#### 2. Creas tu rama de desarrollo.
+> _Nota:_ debes de estar en la rama `develop` y no tener cambios.
+```
+> git branch 
+* develop
+master
+> git checkout -b feature/login-test-case
+Switched to a new branch 'feature/login-test-case'
+```
+ #### 3. Hacer tus cambios, crear tus js, etc, etc.
+ #### 4. Agregar tus archivos nuevos/modificados al stage local
+ (Los pasos 3 y 4 pueden repetirse n veces si es necesario )
+```
+> git status 
+Untracked files:
+M app.js
+new file: specs/test/loginTest.js
+
+> git add .
+
+> git status
+(en letras verdes)
+M app.js
+new file: specs/test/loginTest.js
+
+> git commit -m "Login test case created"
+[feature/login-test-case 084f130] Login test case created
+
+> git push origin feature/login-test-case
+c7573c5..cf971cf  feature/login-test-case -> feature/login-test-case
+```
+
+#### 5. Hacer el Pull Request.
+Ir a su repositorio git (De donde lo clonaron) > Ir a la parte donde dice Pull request > dar click en el boton de **[New pull request]** y debería quedar configurado de la siguiente manera: 
+
+base: development ⬅ compare: feature/login-test-case
+
+> _Nota:_ en algunos casos como en GitLab o Bitbucket se les llama **Merge request** en vez de **Pull request** como en GitHub
+
+Para mas información sobre git pueden ir a este link [soy un link](https://git-scm.com/docs/git#_git_commands)
+
+Si lo prefieren pueden usarn un ide para manejar git, aquí hay un tutorial de como usar GitKraken [soy un link](https://support.gitkraken.com/)
+
+## Conceptos básicos de Vanilla JavaScript
+### Declarar variables
+Existen cuatro formas de declarar variables en js 
+```js
+// Variable global no recomendable usar
+var variableGlabal = 'holi';
+// Constante, si algo es declarado const su valor no puede cambiar
+const pi = 3.14159;
+// Variable mas fifi local, por "estandar" usar en vez de var
+let variableLocal = 'holi'; 
+// Este tipo de variable es similar a let pero dentro de una clase
+this.variableDeClase = 'holi';
+```
+
+### Operadoes 
+```js
++       // suma
+-       // resta
+*       // multiplicación
+=       // asignación
+==      // igualación simple (no compara tipo, no recomendable usar)
+===     // igualación de tipo 'identico a'
+!       // negación, !true === false
+!==    // negación 'diferente a'
+```
+
+### Tipo de datos
+Js es debilmete tipado, aun así existen tipos de variables
+```js
+// Datos primitivos
+
+// Incluye numeros negativos y positivos 
+let int = 42;
+// Números imprecisos con punto decimal, ambos dos son exactamente igual en js en otros 
+// lenguajes varía sólo la presición
+let float = 3.14159;
+let duobles = 3.14159;
+// Cadenas de texto, usar comillas simples de prefencía al declarar cadenas de texto 
+// (los string no son datos primitivos pero yolo)
+let string = 'Cadena simple'; //good
+let string = "Cacena"; 
+// Bool o boolean, son datos binarios con sólo dos posibles valores verdadero o falso
+let bool = true/false;
+
+// Datos complejos
+
+/*
+Un Objeto es conjunto de propiedades relacioneados agrupados con un estructura llave valor.
+
+La llave no debería ser un numero entero, si es posible pero intentar no hacer lo.
+El valor puede ser cualquier otro tipo de dato incluyento otro objecto.
+*/
+let object = { key: value }; // good
+let object = { 'key': value }; // bad, no genera error pero esta feo
+let user = { 
+  age: 27, 
+  firstName: 'Luis', 
+  isRegio: false,
+  lastName: 'Arredondo',
+}
+
+> console.log('name', user.firstName); // Output "Luis"
+
+// Colección de datos o lista, puede contener cualquier tipo de dato y n cantidad.
+let array = [];
+let primeNumbers = [2, 3, 5, 7, 9, 11];
+let days = ['Monday', 'Other monday', 'Other other monday']; 
+// (No genera error pero sí crees necesitar algo así será mejor que te tomes una cheve y re-organizes tus ideas)
+let capirotada = [ 1, 'two', 3, false, 5]; // bad
+
+// Agregar datos a un arreglo
+primeNumbers.push(13);
+
+// Sacar datos de un array
+primeNumbers[3] // Output 7
+
+
+// Remover el ultimo elemento
+days.pop(); // Output 'Other other monday' removed
+
+// Remover el primer elemento de un array
+days.shift(); // Output 'Monday' removed
+
+// Saber el tamaño de un array
+days.length; // Output 3
+
+
+// En js se pueden hacer variables de funciones 
+const myFunction = function() { ... };
+const myFunction = () => { ... }; // Más elegancía ES6
+```
+
+ \* Link's para más información de métodos del objeto [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array) y el objeto [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String). 
+<br />
+ \* Del objero String les recomiendo ver los métodos [.charAt](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt), [.conca](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/concat), [.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes), [.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf), [.replace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace), [.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/slice), [.split](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/split), [.substr ](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/substr), [.toLowerCase](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase)
+
+### Sentencias de control de flujo
+#### Condicíon `if`
+Evalua una condición de tipo `bool` de ser verdará ejecutará el código que este dentro o, en caso de estar presente, ejecutará el código que este en el `else`.
+
+Estructura: 
+```js
+if (condicion) {
+  // Si la condición es true 
+} else {
+  //Si la condición es false 
+}
+```
+Ejemplos de condiciones:
+```js
+let name = 'juan' 
+
+if (name === 'juan') {
+  // entra
+}
+
+if (name === 'Juan'){
+  // no entra
+}
+
+if (name.length > 3) {
+  // entra
+}
+```
+
+### Condición `swich`
+Evalua una condición de tipo `string` o `int` pero con multiple casos de uso (en vez de usar una cantidad `n` de `if`);
+
+Estructura:
+```js
+switch (condición) {
+  case caso1: {
+    // código
+     break;
+   } 
+
+  case caso2: {
+     // código
+     break;
+   }
+
+  default: {
+     // código
+   }
+}
+```
+
+### Functions
+Una función es un trozo de código que se encarga de realizar una tarea en especial.
+
+```js
+// bad, formato viejo
+mYfunction = function(args) {
+   return value; // no es requerido si la función no retorna nada
+}
+
+// good 
+myFunction(args) {
+  return vale; // no es requerido si la función no retorna nada
+}
+
+//ES6, formato más actual
+myFunction = () => {
+   return vale; // no es requerido si la función no retorna nada
+}
+```
+
+Ejemplos: 
+```js
+sumNumber(num1, num2) {
+   return num1 + num2;
+}
+
+log(key, foo) {
+   console.log(key, foo);
+}
+
+let sum = sumNumber(2, 4); // sum almacena 6
+log('La suma es: ', sum); // Output 'La suma es: 6'
+```
