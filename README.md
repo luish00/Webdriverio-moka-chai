@@ -153,7 +153,7 @@ this.variableDeClase = 'holi';
 ==      // igualación simple (no compara tipo, no recomendable usar)
 ===     // igualación de tipo 'identico a'
 !       // negación, !true === false
-!===    // negación 'diferente a'
+!==    // negación 'diferente a'
 ```
 
 ### Tipo de datos
@@ -175,7 +175,7 @@ let bool = true/false;
 // Datos complejos
 
 /*
-Objetos, son 'abstracciones' de datos/objetos del mundo real y siempre lleva una estructura llave: valor.
+Un Objeto es conjunto de propiedades relacioneados agrupados con un estructura llave valor.
 
 La llave no debería ser un numero entero, si es posible pero intentar no hacer lo.
 El valor puede ser cualquier otro tipo de dato incluyento otro objecto.
@@ -183,10 +183,10 @@ El valor puede ser cualquier otro tipo de dato incluyento otro objecto.
 let object = { key: value }; // good
 let object = { 'key': value }; // bad, no genera error pero esta feo
 let user = { 
-    age: 27, 
-    firstName: 'Luis', 
-    isRegio: false,
-    lastName: 'Arredondo',
+  age: 27, 
+  firstName: 'Luis', 
+  isRegio: false,
+  lastName: 'Arredondo',
 }
 
 > console.log('name', user.firstName); // Output "Luis"
@@ -222,7 +222,7 @@ const myFunction = () => { ... }; // Más elegancía ES6
 
 > \* Link's para más información de métodos del objeto [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array) y el objeto [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String). 
 <br />
-> \* Del objero String les recomiendo ver los métodos [charAt()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt), [.concat()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/concat), [.includes()](includes()), [.indexOf()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf), [.replace()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace), [.splice()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/slice), [.split()](split()), [.substr()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/substr), [.toLowerCase()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase)
+> \* Del objero String les recomiendo ver los métodos [.charAt](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt), [.conca](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/concat), [.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes), [.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf), [.replace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace), [.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/slice), [.split](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/split), [.substr ](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/substr), [.toLowerCase](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase)
 
 ### Sentencias de control de flujo
 #### Condicíon `if`
@@ -231,9 +231,9 @@ Evalua una condición de tipo `bool` de ser verdará ejecutará el código que e
 Estructura: 
 ```js
 if (condicion) {
-    // Si la condición es true 
+  // Si la condición es true 
 } else {
-    //Si la condición es false 
+  //Si la condición es false 
 }
 ```
 Ejemplos de condiciones:
@@ -241,15 +241,15 @@ Ejemplos de condiciones:
 let name = 'juan' 
 
 if (name === 'juan') {
-    // entra
+  // entra
 }
 
 if (name === 'Juan'){
-    // no entra
+  // no entra
 }
 
 if (name.length > 3) {
-    // entra
+  // entra
 }
 ```
 
@@ -259,19 +259,19 @@ Evalua una condición de tipo `string` o `int` pero con multiple casos de uso (e
 Estructura:
 ```js
 switch (condición) {
-    case caso1: {
-        // código
-        breack;
-    } 
+  case caso1: {
+       // código
+       breack;
+   } 
 
-    case caso2: {
-        // código
-        breack;
-    }
+  case caso2: {
+       // código
+       breack;
+   }
 
-    defaut: {
-        // código
-    }
+  default: {
+       // código
+   }
 }
 ```
 
@@ -281,32 +281,136 @@ Una función es un trozo de código que se encarga de realizar una tarea en espe
 ```js
 // bad, formato viejo
 mYfunction = function(args) {
-    return value; // no es requerido si la función no retorna nada
+   return value; // no es requerido si la función no retorna nada
 }
 
 // good 
 myFunction(args) {
-    return vale; // no es requerido si la función no retorna nada
+  return vale; // no es requerido si la función no retorna nada
 }
 
 //ES6, formato más actual
 myFunction = () => {
-    return vale; // no es requerido si la función no retorna nada
+   return vale; // no es requerido si la función no retorna nada
 }
 ```
 
 Ejemplos: 
 ```js
 sumNumber(num1, num2) {
-    return num1 + num2;
+   return num1 + num2;
 }
 
 log(key, foo) {
-    console.log(key, foo);
+   console.log(key, foo);
 }
-
 
 let sum = sumNumber(2, 4); // sum almacena 6
 log('La suma es: ', sum); // Output 'La suma es: 6'
 ```
 
+## Estructura del proyecto
+* models
+  *  getQuoteModel.js 
+* pages
+  * quote
+    * getQuote.page.js
+    * yourPlan.page.js
+    * paymentInfo.page.js
+  * ...
+* specs
+  * test
+    * test.js
+* app.js
+* package.json
+* wdio.config.js
+
+#### models
+Carpeta donde hay medelos/objetos con datos contanstes 
+#### pages
+[Page Object](https://webdriver.io/docs/pageobjects.html)s Models (por Mocha), carpeta donde van clases en forma de `Page` una por pagina y deben tener el la nomenclatura similar a myPageLogin`.page.js`.
+
+Ejemplo base de una page:
+```js
+// ./modles/pages/myPageLogin.page.js
+class MyPageLogin {
+  constructor() { // Constructor inicializa datos de clase
+    this.variableDeCalse = 'Soy una variable de clase';
+  }
+
+  get username() {
+    return $('#username');
+  }
+
+  get password() {
+    return $('#password');
+  }
+
+  get flash() {
+    return $('#flash');
+  }
+
+  open() {
+    browser.url('login');
+  }
+
+  login(user, password) {
+    // good fifi
+    this.username.setValue(user);
+    this.password.setValue(pass);
+    
+    // good 
+    $('#username').setValue(user);
+    $('#password').setValue(pass);
+
+    $('#login-button').click();
+  }
+
+  submit() {
+    $('#login-button').click();
+  }
+}
+
+module.exports = MyPageLogin; // <-- exportar mi pagina para usar
+```
+
+### specs 
+Carpeta de reportes tipo Spec (reportes por consola), para mas tipos de reportes ver este [link](https://github.com/amiya-pattnaik/webdriverIO-with-mochaBDD)
+
+Estructura base de un reporte tipo Spec
+
+```js
+// login.spec.js
+const { expect } require('chai');
+const LoginPage require('../../pages/myPageLogin.page.js'); // <-- Inport page's
+const loginPage = new LoginPage(); // <-- Crear variable
+
+describe('login form', () => {
+   // Caso de prueba 1 (usando los compentes directamente) good
+    it('should deny access with wrong creds', () => {
+        loginPage.open()
+        loginPage.username.setValue('foo')
+        loginPage.password.setValue('bar')
+        loginPage.submit()
+
+        expect(loginPage.flash.getText()).to.contain('Your username is invalid!')
+    })
+
+    // Caso de prueba 2 (usando metodo login) good
+    it('should allow access with correct creds', () => {
+        loginPage.open()
+        loginPage.login('tomsmith', 'SuperSecretPassword!')
+
+        expect(LoginPage.flash.getText()).to.contain('You logged into a secure area!')
+    })
+})
+```
+
+### app.js
+Archivo de configuraciones (internas) de la aplicación
+### pagackage.json
+Archivo de liberías utilizado por `npm` o `yarn` para instalar las dependencias del proyecto. 
+
+Entre las cosas ha destacar serían dos, la parte de `dependencies` que es donde estan las librerías/sdk's usados por el proyectos y `scripts` que son, literalmente su nombre, scripts custom creados para fácilitar algunos comandos entre ellos el de correr el proyecto. Para utilizar un sprint se us `npm run mi-script`.
+### wdio.conf.js
+Archivo de configuración del proyecto de Webdriver i/o. (para más detalles ir a [este link](https://webdriver.io/docs/options.html)).
