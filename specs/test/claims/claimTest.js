@@ -22,10 +22,23 @@ describe('claims', () => {
     claims.assertLoadPage();
   })
 
-  it('Select Pet', () => {
-    claims.selectPetClaim();
+  it('Open modal Submit Claim', () => {
+    claims.openNewClaimModal(); 
+    // asert de que el modal salio
   })
-  it('Select Invalid Date')
-    claims.selectDate();
 
+  it('Init claim', () => {
+    claims.initClaim();
+    //  assert
+  })
+
+  it('Submit new Claim', () => {
+    browser.debug(); // hasta aquí se detiene 
+
+    claims.starClaim();
+  })
+
+  it('Select Invalid Date', () => {
+
+  })
 });
