@@ -24,7 +24,7 @@ describe('claims', () => {
 
   it('Open modal Submit Claim', () => {
     claims.openNewClaimModal(); 
-    // asert de que el modal salio
+    // assert de que el modal salio
   })
 
   it('Init claim', () => {
@@ -32,13 +32,16 @@ describe('claims', () => {
     //  assert
   })
 
-  it('Submit new Claim', () => {
-    browser.debug(); // hasta aquí se detiene 
-
-    claims.starClaim();
+  it('Select valid Date', () => {
+    claims.selectDate();
   })
 
-  it('Select Invalid Date', () => {
+  //it('Select Claim Type', () => {
+    //claims.selectClaimType();
+  //})
 
+  it('Press Submit button', () => {
+    claims.pressSubmitClaimBtn();  
+  
   })
 });
