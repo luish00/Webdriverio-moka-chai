@@ -44,4 +44,8 @@ describe('claims', () => {
     claims.pressSubmitClaimBtn();  
   
   })
+
+  it('Fill Claim', () => {
+    claims.fillClaimData();
+  })
 });

@@ -32,11 +32,25 @@ class Claim extends Page {
 
   //}
   pressSubmitClaimBtn() {
-    $('#PreClaimSubmit .claim-button button active-button').click();
-    browser.pause(5000);
+    $('#PreClaimSubmit').waitForClickable({ timeout: 5000 });
+    $('#PreClaimSubmit').click({ timeout: 5000 });
 
   }
 
+  fillClaimData() {
+    browser.pause(3000)
+    $('#AmountClaimed').addValue(250);
+    $('#Description').addValue('Automation Test');
+    $('#PaymentType').selectByIndex(1)
+    $('#Styled_AcceptPolicy').click()
+    $('#Styled_AcceptFraud').click()
+    browser.debug(8000)
+
+
+
+    browser.pause(5000)
+
+  }
   // assert
   assertLoadPage() {
     const url = browser.getUrl();
