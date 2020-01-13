@@ -23,9 +23,10 @@ describe('claims', () => {
   })
 
   it('Open modal Submit Claim', () => {
-    claims.openNewClaimModal(); 
+    claims.openNewClaimModal();
     // assert de que el modal salio
   })
+
 
   it('Init claim', () => {
     claims.initClaim();
@@ -37,15 +38,30 @@ describe('claims', () => {
   })
 
   //it('Select Claim Type', () => {
-    //claims.selectClaimType();
+  //claims.selectClaimType();
   //})
 
   it('Press Submit button', () => {
-    claims.pressSubmitClaimBtn();  
-  
+    claims.pressSubmitClaimBtn();
+  })
+
+  it('Submit Claim Disabled', () => {
+    claims.assertDisabledSubmitBtn();
+
   })
 
   it('Fill Claim', () => {
     claims.fillClaimData();
   })
+
+  it('Open Attachment Pop Up', () => {
+    claims.attachDocumentsPopUp();
+  })
+
+  it('Attach File', () => {
+
+  })
+
+
+
 });
