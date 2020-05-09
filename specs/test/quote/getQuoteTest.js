@@ -1,7 +1,7 @@
 const assert = require('assert');
-const GetQuote = require('../../pages/getQuote.page');
-const GetQuoteModel = require('../../models/getQuoteModel');
-const app = require('../../app');
+const GetQuote = require('../../../pages/getQuote.page');
+const GetQuoteModel = require('../../../models/getQuoteModel');
+const app = require('../../../app');
 
 const getQuoteModel = new GetQuoteModel();
 

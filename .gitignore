@@ -5,3 +5,4 @@ ENV.js
 # Allure folders
 allure-report/
 allure-results/
+*.log
