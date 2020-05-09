@@ -43,6 +43,10 @@ Proyecto base para pruebas unitarias con Webdriver i/o, Mocha y Chai en JavaScri
 ```
 > npm run wdio-start
 ```
+4. Correr Allure reports
+```
+> npm run  allure
+```
 <br />
 
  Para un proyecto desde cero pueden ver la documentación [aquí](https://webdriver.io/docs/gettingstarted.html), en windos cuando vean `./` seria  lo mismo a poner toda la ruta `c:/user/..` por ejemplo:
