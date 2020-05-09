@@ -1,5 +1,5 @@
-const ENV = require('./ENV');
+const { myPetCloud } = require('./ENV');
 
 module.exports = {
-  env: ENV.myPetCloud['qa']
+  env: myPetCloud['dev']
 }

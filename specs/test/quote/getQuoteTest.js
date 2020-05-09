@@ -1,7 +1,7 @@
 const assert = require('assert');
-const GetQuote = require('../../pages/getQuote.page');
-const GetQuoteModel = require('../../models/getQuoteModel');
-const app = require('../../app');
+const GetQuote = require('../../../pages/getQuote.page');
+const GetQuoteModel = require('../../../models/getQuoteModel');
+const app = require('../../../app');
 
 const getQuoteModel = new GetQuoteModel();
 
@@ -40,7 +40,7 @@ describe('Get-quote page', () => {
   const getQuote = new GetQuote(quoteTest);
 
   it('Add a Pet', () => {
-    browser.url(app.env + '/get-quote')
+    getQuote.open();
     const title = browser.getTitle()
     assert.strictEqual(title, 'Figo Quoting')
 

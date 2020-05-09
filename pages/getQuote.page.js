@@ -1,8 +1,16 @@
 const { assert } = require('chai');
+const Page = require('./page');
+const app = require('../app');
 
-class GetQuote {
+class GetQuote extends Page {
   constructor(quote) {
+    super();
+
     this.quote = quote;
+  }
+
+  open() {
+    super.open(app.env + '/get-quote')
   }
 
   setPetName() {
