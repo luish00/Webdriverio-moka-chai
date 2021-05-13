@@ -4,4 +4,9 @@ ENV.js
 
 # Allure folders
 allure-report/
+<<<<<<< HEAD
 allure-results/
+=======
+allure-results/
+*.log
+>>>>>>> 5d3214ea47c570afb5ab3d2d8d09b9aa7ee95f84
