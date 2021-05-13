@@ -7,6 +7,7 @@ Proyecto base para pruebas unitarias con Webdriver i/o, Mocha y Chai en JavaScri
  * [Framework Mocha](https://webdriver.io/docs/frameworks.html#using-mocha)
  * [Reportes Spec](https://webdriver.io/docs/spec-reporter.html)
  * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+ * Allure report
 
 ## Index
 * [Requisitos base](https://github.com/luish00/Webdriverio-moka-chai#requisitos-base)
